@@ -5,11 +5,24 @@ pluginManagement {
         mavenCentral()
     }
 }
+
+sourceControl {
+    gitRepository(uri("https://github.com/mmaquera/version-catalog.git")) {
+        producesModule("com.mmaquera:version-catalog")
+    }
+}
+
 dependencyResolutionManagement {
     repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
     repositories {
         google()
         mavenCentral()
+    }
+
+    versionCatalogs {
+        libs {
+            from("com.mmaquera:version-catalog:0.0.4")
+        }
     }
 }
 rootProject.name = "JetPackCompose"
